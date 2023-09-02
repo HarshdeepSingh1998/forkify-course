@@ -7,6 +7,10 @@ class BookmarkView extends View {
     constructor() {
         super()
     }
+
+    renderBookmarkHandler(handler) {
+      window.addEventListener('load', handler)
+    }
     
     generateHTML () {
       const id = window.location.hash.slice(1);

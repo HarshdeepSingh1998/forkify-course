@@ -26,7 +26,8 @@ const controlRecipe = async function() {
     resultView.render(model.getPage(model.state.search.page))
 
     // to render the bookmark selected 
-    bookmarkView.render(model.state.bookmarks)
+    // bookmarkView.render(model.state.bookmarks) or see lec 305
+    bookmarkView.update(model.state.bookmarks)
 
     //load recipe. get data from model file
 
@@ -134,7 +135,13 @@ const controlGetFormData = async function(recipe) {
     addRecipeView.renderError()
   }
 }
+
+const renderBookmark = function() {
+  bookmarkView.render(model.state.bookmarks)
+}
 const init = function() {
+  //render bookmarkview
+  bookmarkView.renderBookmarkHandler(renderBookmark)
   //right side recipe view
   recipeView.handlerFunction(controlRecipe);
   //top search view
@@ -149,7 +156,6 @@ const init = function() {
   addRecipeView.addHandlerForm(controlGetFormData)
 }
 
-console.log('Welcome to Forkify')
 init();
 
 
