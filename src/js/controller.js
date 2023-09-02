@@ -149,7 +149,7 @@ const init = function() {
   addRecipeView.addHandlerForm(controlGetFormData)
 }
 
-
+console.log('Welcome to Forkify')
 init();
 
 
